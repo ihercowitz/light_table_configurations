@@ -1,0 +1,55 @@
+;; User keymap
+;; -----------------------------
+;; Keymaps are stored as a set of diffs that are merged together together
+;; to create the final set of keys. You can modify these diffs to either add
+;; or subtract bindings.
+;;
+;; Like behaviors, keys are bound by tag. When objects with those tags are active
+;; the key bindings are live. Keys can be bound to any number of Light Table commands,
+;; allowing you the flexibility to execute multiple operations together. To see a list
+;; of all the commands you can execute, start typing a word related to the thing you
+;; want to do in between the square brackets (e.g. type "editor").
+
+{:+ {:app {}
+
+     :editor {"alt-w" [:editor.watch.watch-selection]
+              "alt-shift-w" [:editor.watch.unwatch]
+
+              ;;REPL
+              "ctrl-i" [:instarepl-current]
+              "ctrl-shift-i" [:instarepl]
+              "ctrl-shift-l" [:instarepl.toggle-live]
+
+              ;;Console
+              "ctrl-shift-c" [:toggle-console]
+
+              ;;Tabset
+              "ctrl-a c" [:tabset.new]
+              "ctrl-a w" [:tabset.close]
+              "ctrl-a right" [:tabs.move-next-tabset]
+              "ctrl-a left" [:tabs.move-prev-tabset]
+              "ctrl-a tab" [:tabset.next]
+
+              ;;Window close
+              "ctrl-w" [:window.close]
+
+              ;;Indent
+              "ctrl-shift-f" [:smart-indent-selection]
+
+              "ctrl-a" [:editor.select-all]
+              "f11" [:window.fullscreen]
+
+              ;;Docs
+              "ctrl-f1" [:editor.doc.toggle]
+              "ctrl-shift-f1" [:docs.search.show]
+
+              ;;Toggle workspace
+              "ctrl-shift-w" [:workspace.show]
+
+              ;;Paredit operations
+              "ctrl-f5 up" [:paredit.select.parent]
+              "ctrl-f5 right" [:paredit.grow.right]
+              "ctrl-f5 left" [:paredit.grow.left]
+              "ctrl-shift-f5 right" [:paredit.shrink.right]
+              "ctrl-shift-f5 left" [:paredit.shrink.left]
+              }}}
